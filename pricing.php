@@ -1,0 +1,303 @@
+<?php 
+
+include 'config/koneksi.php';
+
+ ?>
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  
+<head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aplikasi Pengelolaan Laundry</title>
+    <meta name="description" content="Laundryes - Laundry Business Html Template. ">
+    <meta name="keywords" content="laundry, clothes, wash, clean">
+    <meta name="author" content="1callwash.com"> 
+	
+	<!-- ==============================================
+	Favicons
+	=============================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	
+	<!-- ==============================================
+	CSS
+	=============================================== -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	
+	
+	
+	<!-- ==============================================
+	Google Fonts
+	=============================================== -->
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,700,900' rel='stylesheet' type='text/css'>
+	
+	
+	<!-- Custom Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	
+	
+    <script type="text/javascript" src="js/modernizr.min.js"></script>
+	
+</head>
+
+<body>
+	
+	<!-- Load page -->
+	<div class="animationload">
+		<div class="loader"></div>
+	</div>
+	
+	
+	<!-- NAVBAR SECTION -->
+	<div class="navbar navbar-main navbar-fixed-top">
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+						<div class="info">
+							<div class="info-item">
+								<span class="fa fa-phone"></span> No Telepon 05683642
+							</div>
+							<div class="info-item">
+								<span class="fa fa-envelope-o"></span> <a href="mailto:info@1callwash.com" title="">Email Laundry@gmail.com</a>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+						<div class="top-sosmed pull-right">
+							<a href="https://web.facebook.com/1callwash" title=""><span class="fa fa-facebook"></span></a>
+							<a href="#" title=""><span class="fa fa-twitter"></span></a>
+							<a href="#" title=""><span class="fa fa-instagram"></span></a>							
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"><h1>LAUNDRY</h1></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="index.html">Beranda</a></li>					
+					<li><a href="about.html">Tentang Kami</a></li>
+					<li><a href="services.html">Layanan</a></li>
+					<li><a href="pricing.php">Harga</a></li>
+					<li><a href="login.php">Masuk</a></li>
+				</ul>
+			</div>
+		</div>
+    </div>
+
+ 
+	<!-- BANNER -->
+	<div class="section subbanner" style="background:url('images/slide_page.jpg') no-repeat center center;   -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="caption">
+						<h3>HARGA</h3>
+						<ol class="breadcrumb">
+						  <li><a href="index.html">Beranda</a></li>
+						  <li class="active">Harga</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	<!-- ABOUT SECTION -->
+	<div id="services" class="section services">
+		<div class="container">
+			<!--  -->
+			<div class="row">
+				<div class="col-sm-12 col-md-12">
+					<div class="page-title">
+						<h2 class="lead">Tabel Harga</h2>
+					</div>
+				</div>
+			</div>
+			
+			
+			<!--  -->
+			
+			<div class="row">
+
+				<div class="container">
+					<table class="table table-bordered">
+						<thead class="bg-primary">
+							<th>Nama Paket</th>
+							<th>Harga</th>
+						</thead>
+				<?php 
+
+					$paket = mysqli_query($koneksi, "select * from tb_paket");
+					while ($data=mysqli_fetch_array($paket)) {
+						// code...
+				
+				 ?>
+						<tbody>
+							<td><?= $data['nama_paket'] ?></td>
+							<td>Rp. <?= number_format($data['harga']) ?></td>
+						</tbody>
+				<?php 
+					}
+
+				 ?>
+					</table>
+				</div>
+				
+				
+
+			
+				
+				<div class="col-sm-12 col-md-12">
+				<p class="more-info-price">	</a> </p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- FOOTER SECTION -->
+		<div class="footer">
+	
+		<div class="f-desc">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<div class="footer-item">
+							<div class="footer-title">
+								<h4>Sosial Media</h4>
+							</div>
+							<div class="footer-sosmed">
+								<a href="https://web.facebook.com/1callwash" title="">
+									<div class="item">
+										<i class="fa fa-facebook"></i>
+									</div>
+								</a>
+								<a href="#" title="">
+									<div class="item">
+										<i class="fa fa-twitter"></i>
+									</div>
+								</a>
+								<a href="#" title="">
+									<div class="item">
+										<i class="fa fa-instagram"></i>
+									</div>
+								</a>							
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<div class="footer-item">
+							<div class="footer-title">
+								<h4>Waktu Operasional</h4>
+							</div>
+							<p>
+								Senin - Sabtu<br>
+								10AM-6PM<br><br><br>
+								* Kami senang membantumu
+								
+							
+							
+							
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+						<div class="footer-item">
+							<div class="footer-title">
+								<h4>Hubungi Kami</h4>
+							</div>
+							<div class="footer-getintouch">
+								<div class="footer-getintouch-item">
+									<div class="icon">
+										<b class="fa fa-phone"></b>
+									</div>
+									<div class="desc">
+										<div class="desc-1">Telepon</div>
+										<div class="desc-2">:</div>
+										<div class="desc-3">05683642 </div>
+									</div>
+								</div>
+								<div class="footer-getintouch-item">
+									<div class="icon">
+										<b class="fa fa-envelope "></b>
+									</div>
+									<div class="desc">
+										<div class="desc-1">Email</div>
+										<div class="desc-2">:</div>
+										<div class="desc-3"><a href="mailto:info@1callwash.com" title="">Laundry@gmail.com</a></div>
+									</div>
+								</div>
+								<div class="footer-getintouch-item">
+									<div class="icon">
+										<b class="fa fa-globe"></b>
+									</div>
+									<div class="desc">
+										<div class="desc-1">Website </div>
+										<div class="desc-2">:</div>
+										<div class="desc-3">www.laundry.com</div>
+									</div>
+								</div>
+															
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+				
+		</div>
+		
+		<div class="fcopy">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<p class="ftex">&copy; Laundry All Rights Reserved</p> 
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type='text/javascript' src='https://maps.google.com/maps/api/js?sensor=false&amp;ver=4.1.5'></script>
+	<script type='text/javascript' src='js/jqBootstrapValidation.js'></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-hover-dropdown.min.js"></script>
+	
+	<script type="text/javascript" src="js/script.js"></script>
+
+	
+	<script>
+	
+	
+    </script>
+	
+</body>
+
+</html>
